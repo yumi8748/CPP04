@@ -6,11 +6,14 @@
 
 Cat::Cat()
 {
-    std::cout << "Cat constructor" << std::endl;
+	this->Animal::type = "Cat";
+    std::cout << "Cat constructor called!" << std::endl;
 }
 
-Cat::Cat( const Cat & src )
+Cat::Cat( const Cat &other )
 {
+	this->type = other.type;
+	std::cout << "Cat copy constructor called!" << std::endl;
 }
 
 
@@ -28,26 +31,20 @@ Cat::~Cat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat &				Cat::operator=( Cat const & rhs )
+Cat &Cat::operator=( Cat const & other )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &other )
+	{
+		this->type = other.type;
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void    makeSound(void){
+void    Cat::makeSound(void) const
+{
     std::cout << "Meooooow Meooooow" << std::endl;
 }
 

@@ -7,7 +7,6 @@
 
 class Cat: public Animal
 {
-
 	public:
 
 		Cat();
@@ -15,11 +14,9 @@ class Cat: public Animal
 		~Cat();
 
 		Cat &		operator=( Cat const & rhs );
-        void    makeSound(void);
+        void    makeSound(void) const override;
 	private:
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Cat const & i );
 
 #endif /* ************************************************************* CAT_H */

@@ -6,11 +6,14 @@
 
 Dog::Dog()
 {
+	this->Animal::type = "Dog";
     std::cout << "Dog constructor called!" << std::endl;
 }
 
-Dog::Dog( const Dog & src )
+Dog::Dog( const Dog &other )
 {
+	this->type = other.type;
+	std::cout << "Dog copy constructor called!" << std::endl;
 }
 
 
@@ -28,26 +31,20 @@ Dog::~Dog()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog &				Dog::operator=( Dog const & rhs )
+Dog &				Dog::operator=( Dog const &other )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &other )
+	{
+		this->type = other.type;
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void    makeSound(void){
+void    Dog::makeSound(void) const
+{
     std::cout << "Wooooof Wooooof" << std::endl;
 }
 

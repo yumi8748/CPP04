@@ -6,19 +6,17 @@
 
 class Animal
 {
-
 	public:
 
 		Animal();
 		Animal( Animal const & src );
-		~Animal();
+		virtual~Animal();
 
 		Animal &		operator=( Animal const & rhs );
         std::string    getType(void) const; 
+		virtual void    makeSound(void) const;
 	protected:
         std::string type;
 };
-
-std::ostream &			operator<<( std::ostream & o, Animal const & i );
 
 #endif /* ********************************************************** ANIMAL_H */
