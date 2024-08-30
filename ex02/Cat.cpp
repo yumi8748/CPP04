@@ -1,19 +1,19 @@
-#include "WrongCat.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongCat::WrongCat()
+Cat::Cat(): brain(new Brain())
 {
-	this->WrongCat::type = "WrongCat";
-	std::cout << "WrongCat constructor called!" << std::endl;
+	this->Animal::type = "Cat";
+    std::cout << "Cat constructor called!" << std::endl;
 }
 
-WrongCat::WrongCat( const WrongCat & other )
+Cat::Cat( const Cat &other )
 {
 	this->type = other.type;
-	std::cout << "WrongCat copy constructor called!" << std::endl;
+	std::cout << "Cat copy constructor called!" << std::endl;
 }
 
 
@@ -21,9 +21,9 @@ WrongCat::WrongCat( const WrongCat & other )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-WrongCat::~WrongCat()
+Cat::~Cat()
 {
-	std::cout << "WrongCat destructor called!" << std::endl;
+    std::cout << "Cat destructor called!" << std::endl;
 }
 
 
@@ -31,24 +31,25 @@ WrongCat::~WrongCat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-WrongCat &				WrongCat::operator=( WrongCat const & other )
+Cat &Cat::operator=( Cat const & other )
 {
 	if ( this != &other )
 	{
-		this->type = other.getType();
+		this->type = other.type;
 	}
 	return *this;
 }
 
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
-void WrongCat::makeSound() const
+void    Cat::makeSound(void) const
 {
-	std::cout << "(WrongCat sound)" << std::endl;
+    std::cout << "Meooooow Meooooow" << std::endl;
+}
+
+void Cat::printBrainIdeas() const {
+	brain->printIdeas();
 }
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

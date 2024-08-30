@@ -1,19 +1,15 @@
-#include "WrongCat.hpp"
+#include "AMateria.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongCat::WrongCat()
+AMateria::AMateria()
 {
-	this->WrongCat::type = "WrongCat";
-	std::cout << "WrongCat constructor called!" << std::endl;
 }
 
-WrongCat::WrongCat( const WrongCat & other )
+AMateria::AMateria( const AMateria & src )
 {
-	this->type = other.type;
-	std::cout << "WrongCat copy constructor called!" << std::endl;
 }
 
 
@@ -21,9 +17,8 @@ WrongCat::WrongCat( const WrongCat & other )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-WrongCat::~WrongCat()
+AMateria::~AMateria()
 {
-	std::cout << "WrongCat destructor called!" << std::endl;
 }
 
 
@@ -31,28 +26,32 @@ WrongCat::~WrongCat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-WrongCat &				WrongCat::operator=( WrongCat const & other )
+AMateria &				AMateria::operator=( AMateria const & rhs )
 {
-	if ( this != &other )
-	{
-		this->type = other.getType();
-	}
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
 	return *this;
 }
-
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
-void WrongCat::makeSound() const
+AMateria::AMateria(std::string const & type)
 {
-	std::cout << "(WrongCat sound)" << std::endl;
+
 }
+
+void AMateria::use(ICharacter& target)
+{
+	
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
+std::string const & getType() const;
 
 /* ************************************************************************** */
