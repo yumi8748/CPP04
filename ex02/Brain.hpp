@@ -11,10 +11,10 @@ class Brain
 	public:
 
 		Brain();
-		Brain( Brain const & src );
+		Brain( Brain const & other );
 		~Brain();
 
-		Brain &		operator=( Brain const & rhs );
+		Brain &		operator=( Brain const & other );
 		void printIdeas() const;
 };
 

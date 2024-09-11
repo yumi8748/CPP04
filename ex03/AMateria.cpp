@@ -4,12 +4,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+AMateria::AMateria(): type("undefined")
 {
 }
 
-AMateria::AMateria( const AMateria & src )
+AMateria::AMateria( const AMateria & other )
 {
+	this->type = other.type;
 }
 
 
@@ -26,12 +27,10 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AMateria &				AMateria::operator=( AMateria const & rhs )
+AMateria &				AMateria::operator=( AMateria const & other )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if (this != &other)
+		this->type = other.type;
 	return *this;
 }
 
@@ -39,19 +38,19 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-AMateria::AMateria(std::string const & type)
-{
-
-}
+AMateria::AMateria(std::string const & type) : type(type){}
 
 void AMateria::use(ICharacter& target)
 {
-	
+	std::cout << "* heals " << &target << "’s wounds *" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-std::string const & getType() const;
+std::string const & AMateria::getType() const
+{
+	return type;
+}
 
 /* ************************************************************************** */

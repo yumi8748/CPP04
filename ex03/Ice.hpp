@@ -3,22 +3,23 @@
 
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
 
-class Ice
+class Ice : public AMateria
 {
 
 	public:
 
 		Ice();
-		Ice( Ice const & src );
+		Ice( Ice const & other );
 		~Ice();
 
-		Ice &		operator=( Ice const & rhs );
-
+		Ice &		operator=( Ice const & other );
+		virtual void use(ICharacter& target);
+		virtual AMateria* clone() const;
 	private:
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Ice const & i );
 
 #endif /* ************************************************************* ICE_H */

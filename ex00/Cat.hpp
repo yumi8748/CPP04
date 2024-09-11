@@ -10,10 +10,10 @@ class Cat: public Animal
 	public:
 
 		Cat();
-		Cat( Cat const & src );
+		Cat( Cat const & other );
 		~Cat();
 
-		Cat &		operator=( Cat const & rhs );
+		Cat &		operator=( Cat const & other );
         void    makeSound(void) const override;
 	private:
 

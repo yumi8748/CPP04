@@ -3,22 +3,23 @@
 
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
 
-class Cure
+class Cure: public AMateria
 {
 
 	public:
 
 		Cure();
-		Cure( Cure const & src );
+		Cure( Cure const & other );
 		~Cure();
 
-		Cure &		operator=( Cure const & rhs );
-
+		Cure &		operator=( Cure const & other );
+		virtual void use(ICharacter& target);
+		virtual AMateria* clone() const;
 	private:
 
 };
 
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
 
 #endif /* ************************************************************ CURE_H */

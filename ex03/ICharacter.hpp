@@ -3,19 +3,13 @@
 
 # include <iostream>
 # include <string>
-# include "Amateria.hpp"
+# include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
-
 	public:
-
-		ICharacter();
-		ICharacter( ICharacter const & src );
-		~ICharacter();
-
-		ICharacter &		operator=( ICharacter const & rhs );
-		
 		virtual ~ICharacter() {}
 		virtual std::string const & getName() const = 0;
 		virtual void equip(AMateria* m) = 0;
@@ -24,7 +18,5 @@ class ICharacter
 	private:
 
 };
-
-std::ostream &			operator<<( std::ostream & o, ICharacter const & i );
 
 #endif /* ****************************************************** ICHARACTER_H */

@@ -6,10 +6,12 @@
 
 Cure::Cure()
 {
+	this->AMateria::type = "cure";
 }
 
-Cure::Cure( const Cure & src )
+Cure::Cure( const Cure & other )
 {
+	this->AMateria::type = other.type;
 }
 
 
@@ -26,26 +28,28 @@ Cure::~Cure()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cure &				Cure::operator=( Cure const & rhs )
+Cure &				Cure::operator=( Cure const & other )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &other )
+	{
+		this->type = other.type;
+	}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Cure const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
 }
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+void Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
 
+AMateria* Cure::clone() const
+{
+	return new Cure(*this);
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
